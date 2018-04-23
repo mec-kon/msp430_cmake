@@ -262,16 +262,16 @@ endif(NOT CMAKE_BUILD_TYPE)
 ##################################################################################
 # some cmake cross-compile necessities
 ##################################################################################
-if(DEFINED ENV{MSP430_FIND_ROOT_PATH})
-   set(CMAKE_FIND_ROOT_PATH $ENV{MSP430_FIND_ROOT_PATH})
-else(DEFINED ENV{MSP430_FIND_ROOT_PATH})
+if(DEFINED ENV{MSP430_GCC_PATH})
+   set(CMAKE_FIND_ROOT_PATH $ENV{MSP430_GCC_PATH})
+else(DEFINED ENV{MSP430_GCC_PATH})
    message(FATAL_ERROR "Please set MSP430_FIND_ROOT_PATH in your environment.")
-endif(DEFINED ENV{MSP430_FIND_ROOT_PATH})
+endif(DEFINED ENV{MSP430_GCC_PATH})
 
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-set(CMAKE_SYSROOT $ENV{MSP430_FIND_ROOT_PATH})
+set(CMAKE_SYSROOT $ENV{MSP430_GCC_PATH})
 # not added automatically, since CMAKE_SYSTEM_NAME is "generic"
 set(CMAKE_SYSTEM_INCLUDE_PATH "${CMAKE_FIND_ROOT_PATH}/include")
 set(CMAKE_SYSTEM_LIBRARY_PATH "${CMAKE_FIND_ROOT_PATH}/lib")
